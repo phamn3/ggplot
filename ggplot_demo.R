@@ -40,5 +40,17 @@ ggplot(bigmart, aes(Item_Weight)) + geom_histogram(bins = 30)+
 ggplot(bigmart, aes(Item_Weight)) + geom_histogram(bins = 30)+
   labs(title = "Histogram of Item Weight")
 
+#Histogram Charts using Diamond dataset
+ggplot(diamonds) + geom_histogram(aes(x=price)) + geom_vline(xintercept=12000)
+ggplot(diamonds) + geom_histogram(aes(x=carat), bins = 25)
 
-#
+
+
+#Stacked Bar Charts using Diamond dataset
+require(ggplot2)
+data(diamonds)
+head(diamonds)
+View(diamonds)
+ggplot(diamonds, aes(clarity, fill=cut)) +geom_bar()
+ggplot(diamonds, aes(clarity, fill=color)) +geom_bar()
+ggplot(diamonds, aes(clarity)) +geom_bar() + facet_wrap(~cut)
